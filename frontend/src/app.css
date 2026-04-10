@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #app {
+  height: 100%;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #121212;
+  color: #e8e8e8;
+  user-select: none;
+}
+
+.screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 32px 28px;
+  text-align: center;
+}
+.screen.active { display: flex; }
+
+/* Idle */
+.logo { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.tagline { font-size: 14px; color: #888; margin-bottom: 48px; }
+
+.btn-primary {
+  background: #fff; color: #121212; border: none; border-radius: 8px;
+  padding: 14px 32px; font-size: 15px; font-weight: 600; cursor: pointer;
+  width: 100%; max-width: 280px; transition: opacity 0.15s;
+}
+.btn-primary:hover { opacity: 0.85; }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Consent */
+.consent-title { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+.consent-sub { font-size: 14px; color: #888; margin-bottom: 32px; line-height: 1.5; }
+.helper-name { color: #fff; font-weight: 600; }
+
+.permissions {
+  background: #1e1e1e; border: 1px solid #2e2e2e; border-radius: 10px;
+  padding: 18px 20px; width: 100%; max-width: 340px; text-align: left; margin-bottom: 12px;
+}
+.permissions p { font-size: 13px; color: #aaa; margin-bottom: 12px; }
+.permissions ul { list-style: none; padding: 0; }
+.permissions li {
+  font-size: 14px; color: #e8e8e8; padding: 5px 0;
+  display: flex; align-items: center; gap: 10px;
+}
+.permissions li::before { content: "•"; color: #555; font-size: 18px; }
+
+.consent-note { font-size: 12px; color: #555; margin-bottom: 28px; max-width: 320px; line-height: 1.5; }
+
+.consent-buttons { display: flex; gap: 12px; width: 100%; max-width: 340px; }
+
+.btn-allow {
+  flex: 1; background: #fff; color: #121212; border: none; border-radius: 8px;
+  padding: 13px; font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity 0.15s;
+}
+.btn-allow:hover { opacity: 0.85; }
+
+.btn-decline {
+  flex: 1; background: transparent; color: #888; border: 1px solid #2e2e2e;
+  border-radius: 8px; padding: 13px; font-size: 14px; cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.btn-decline:hover { border-color: #555; color: #ccc; }
+
+/* Loading */
+.loading-text { font-size: 14px; color: #666; margin-top: 24px; }
+.spinner {
+  width: 28px; height: 28px; border: 2px solid #2e2e2e; border-top-color: #fff;
+  border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Live */
+#screen-live { padding: 0; justify-content: flex-start; }
+
+.live-header {
+  width: 100%; background: #1a1a1a; border-bottom: 1px solid #2a2a2a;
+  padding: 12px 16px; display: flex; align-items: center;
+  justify-content: space-between; flex-shrink: 0;
+}
+.live-indicator { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; }
+
+.dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.btn-end {
+  background: #dc2626; color: #fff; border: none; border-radius: 6px;
+  padding: 7px 14px; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.btn-end:hover { background: #b91c1c; }
+
+.terminal-wrap { flex: 1; width: 100%; overflow: hidden; background: #0d0d0d; }
+
+.win-status {
+  flex: 1; width: 100%; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 12px;
+  padding: 32px; background: #0d0d0d;
+}
+.win-status p { font-size: 14px; color: #666; text-align: center; line-height: 1.6; }
+
+/* Ended */
+.ended-icon { font-size: 40px; margin-bottom: 16px; }
+.ended-title { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+.ended-sub { font-size: 14px; color: #666; margin-bottom: 32px; }
+
+/* Error */
+.error-banner {
+  background: #3b1a1a; border: 1px solid #7f1d1d; border-radius: 8px;
+  padding: 12px 16px; font-size: 13px; color: #fca5a5;
+  width: 100%; max-width: 340px; margin-bottom: 16px; display: none; text-align: left;
+}
+.error-banner.visible { display: block; }
